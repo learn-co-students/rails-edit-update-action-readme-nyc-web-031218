@@ -421,3 +421,669 @@ Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4
 
 
 Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-12-31 14:38:13 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/posts/new" for ::1 at 2018-04-09 09:16:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 597ms (Views: 551.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/index" for ::1 at 2018-04-09 09:16:08 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[35mPost Load (23.7ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 60ms (ActiveRecord: 23.7ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=index):
+  app/controllers/posts_controller.rb:7:in `show'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (98.4ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 09:16:20 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 100ms (Views: 99.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for ::1 at 2018-04-09 09:16:32 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qlT9Yx1VVYs2nTeldDAprtyUzxNB+zch/hGL44MQl0e/CuOzVtnEe0ryLcerG13o4Y7Bk8OIpPH+vF+Cq2dp9g==", "title"=>"First post!", "description"=>"testing", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (22.8ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "First post!"], ["description", "testing"], ["created_at", "2018-04-09 13:16:32.594734"], ["updated_at", "2018-04-09 13:16:32.594734"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 47ms (ActiveRecord: 24.3ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-04-09 09:16:32 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 37.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-04-09 09:16:47 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  Rendered posts/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 76ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-04-09 09:17:14 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RqZONcu4bizsNGUpxfwxAPZnA20ZoGwZwyRwtTLHkF5T+FDlgDT/3JBbf0sa10VGy30N7ZvT/8nDiaTUGrBu7w==", "title"=>"second post", "description"=>"lets change things up", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "second post"], ["description", "lets change things up"], ["created_at", "2018-04-09 13:17:14.083241"], ["updated_at", "2018-04-09 13:17:14.083241"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 4ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/4" for ::1 at 2018-04-09 09:17:14 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 84ms (Views: 82.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 09:17:19 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/post/6/edit" for ::1 at 2018-04-09 09:20:25 -0400
+
+ActionController::RoutingError (No route matches [GET] "/post/6/edit"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (80.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (14.5ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (306.9ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 09:23:33 -0400
+
+SyntaxError (/Users/Henry/Desktop/flatiron/Mod2/labs/rails-edit-update-action-readme-nyc-web-031218/app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>):
+  app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (95.2ms)
+
+
+Started GET "/post/6/edit" for ::1 at 2018-04-09 09:24:49 -0400
+
+ActionController::RoutingError (No route matches [GET] "/post/6/edit"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (193.8ms)
+
+
+Started GET "/post/3/edit" for ::1 at 2018-04-09 09:24:58 -0400
+
+ActionController::RoutingError (No route matches [GET] "/post/3/edit"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (123.8ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-04-09 09:25:44 -0400
+
+SyntaxError (/Users/Henry/Desktop/flatiron/Mod2/labs/rails-edit-update-action-readme-nyc-web-031218/app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>):
+  app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.6ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (107.7ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 11:23:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (31.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+SyntaxError (/Users/Henry/Desktop/flatiron/Mod2/labs/rails-edit-update-action-readme-nyc-web-031218/app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>):
+  app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (124.1ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (244.2ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 11:23:35 -0400
+
+SyntaxError (/Users/Henry/Desktop/flatiron/Mod2/labs/rails-edit-update-action-readme-nyc-web-031218/app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>):
+  app/controllers/posts_controller.rb:28: syntax error, unexpected ')', expecting =>
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.9ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 11:24:11 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (48.6ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (55.9ms)
+Completed 200 OK in 808ms (Views: 740.5ms | ActiveRecord: 49.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-04-09 11:24:16 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 48ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 11:24:44 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 347ms (Views: 345.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2018-04-09 11:24:47 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (89.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 251ms (Views: 59.9ms | ActiveRecord: 89.1ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2018-04-09 11:25:35 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 374ms (Views: 373.2ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/2" for ::1 at 2018-04-09 11:25:41 -0400
+
+ActionController::RoutingError (No route matches [PUT] "/posts/2"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (137.5ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (20.1ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (693.6ms)
+
+
+Started PUT "/posts/2" for ::1 at 2018-04-09 11:26:28 -0400
+
+ActionController::RoutingError (No route matches [PUT] "/posts/2"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (111.5ms)
+
+
+Started GET "/post/3/edit" for ::1 at 2018-04-09 11:26:45 -0400
+
+ActionController::RoutingError (No route matches [GET] "/post/3/edit"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (115.5ms)
+
+
+Started GET "/post/3/edit" for ::1 at 2018-04-09 11:30:15 -0400
+
+ActionController::RoutingError (No route matches [GET] "/post/3/edit"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (141.9ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-04-09 11:30:26 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (47.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 476ms (Views: 402.6ms | ActiveRecord: 48.1ms)
+
+
+Started PUT "/posts/3" for ::1 at 2018-04-09 11:30:42 -0400
+
+ActionController::RoutingError (No route matches [PUT] "/posts/3"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (138.3ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 11:30:54 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 317ms (Views: 316.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 11:36:36 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 132ms (Views: 131.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-04-09 11:36:38 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 60ms (Views: 58.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-04-09 11:36:46 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RPuKIceBumvqo+dq4YMU5JafU8rfZALcjzqDiftKEHVRpZTxjA0rm5bM/Qg+qGCiq4VdSl0XkQyPl1fo0z3uxA==", "title"=>"Third Post!", "description"=>"third", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (33.0ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Third Post!"], ["description", "third"], ["created_at", "2018-04-09 15:36:46.291612"], ["updated_at", "2018-04-09 15:36:46.291612"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 73ms (ActiveRecord: 34.6ms)
+
+
+Started GET "/posts/5" for ::1 at 2018-04-09 11:36:46 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/5/edit" for ::1 at 2018-04-09 11:36:49 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered posts/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/5" for ::1 at 2018-04-09 11:36:53 -0400
+
+ActionController::RoutingError (No route matches [PUT] "/posts/5"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.9) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.9) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.9) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.9) lib/rack/lock.rb:17:in `call'
+  rack (1.6.9) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.9) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /Users/Henry/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (123.2ms)
+
+
+Started PUT "/posts/5" for ::1 at 2018-04-09 11:40:02 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wKTt4OPpPKKQFjtYjArUd1gEWNXAD22hsf6l7KSIMbrV+vMwqGWtUux5ITpTIaAxZR5WVUJ8/nGxU3GNjP/PCw==", "title"=>"Third Post!", "description"=>"fixed", "commit"=>"Submit Post", "id"=>"5"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (16.8ms)[0m  UPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["description", "fixed"], ["updated_at", "2018-04-09 15:40:02.873409"], ["id", 5]]
+  [1m[36m (22.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 51ms (ActiveRecord: 40.4ms)
+
+
+Started GET "/posts/5" for ::1 at 2018-04-09 11:40:02 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 117ms (Views: 115.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-09 11:40:35 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 150ms (Views: 149.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2018-04-09 11:40:43 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered posts/edit.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 0.1ms)
+
+
+Started PUT "/posts/4" for ::1 at 2018-04-09 11:40:51 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"006WOWM/RPCuFZnMLD+pa/akdc+UNv5LmZRPn2H6d1HGEIjpKLPVANJ6g67zFN0ty757TxZFbZuZOZv+SY2J4A==", "title"=>"second post", "description"=>"lets REALLY REALLY change things up", "commit"=>"Submit Post", "id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (31.8ms)[0m  [1mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "lets REALLY REALLY change things up"], ["updated_at", "2018-04-09 15:40:51.683870"], ["id", 4]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 36ms (ActiveRecord: 33.1ms)
+
+
+Started GET "/posts/4" for ::1 at 2018-04-09 11:40:51 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 59ms (Views: 57.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/index" for ::1 at 2018-04-09 11:41:56 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=index):
+  app/controllers/posts_controller.rb:7:in `show'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (122.2ms)
+
+
+Started GET "/posts/" for ::1 at 2018-04-09 11:42:08 -0400
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 186ms (Views: 185.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/show" for ::1 at 2018-04-09 11:42:15 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=show):
+  app/controllers/posts_controller.rb:7:in `show'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (95.6ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2018-04-09 11:42:32 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 173ms (Views: 172.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/3" for ::1 at 2018-04-09 11:42:35 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 56ms (Views: 54.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-04-09 11:42:54 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 63ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/create" for ::1 at 2018-04-09 11:43:15 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"create"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=create):
+  app/controllers/posts_controller.rb:7:in `show'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (95.6ms)
