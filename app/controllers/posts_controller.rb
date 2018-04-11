@@ -29,3 +29,4 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
    end
 end
+#beautify is a great tool!
